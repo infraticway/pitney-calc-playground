@@ -88,7 +88,7 @@ export const LeasingCalculator = () => {
             <Input
               id="valorBem"
               type="text"
-              value={formatCurrency(parseValue(valorBem))}
+              value={valorBem ? formatCurrency(parseValue(valorBem)) : ''}
               onChange={(e) => setValorBem(e.target.value.replace(/[^\d]/g, ''))}
               className="font-semibold"
             />
@@ -134,7 +134,7 @@ export const LeasingCalculator = () => {
             <Input
               id="despesas"
               type="text"
-              value={formatCurrency(parseValue(despesasExtras))}
+              value={despesasExtras ? formatCurrency(parseValue(despesasExtras)) : ''}
               onChange={(e) => setDespesasExtras(e.target.value.replace(/[^\d]/g, ''))}
             />
           </div>
