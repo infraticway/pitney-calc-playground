@@ -10,7 +10,7 @@ const Index = () => {
   };
 
   const handleEquipmentsSite = () => {
-    window.open("https://www.pitneybowesbrasil.com.br", "_blank");
+    window.open("https://pitneybowesbrasil.com", "_blank");
   };
 
   return (

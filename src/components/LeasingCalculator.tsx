@@ -89,7 +89,10 @@ export const LeasingCalculator = () => {
               id="valorBem"
               type="text"
               value={valorBem ? formatCurrency(parseValue(valorBem)) : ''}
-              onChange={(e) => setValorBem(e.target.value.replace(/[^\d]/g, ''))}
+              onChange={(e) => {
+                const numericValue = e.target.value.replace(/[^\d]/g, '');
+                setValorBem(numericValue);
+              }}
               className="font-semibold"
             />
           </div>
@@ -135,7 +138,10 @@ export const LeasingCalculator = () => {
               id="despesas"
               type="text"
               value={despesasExtras ? formatCurrency(parseValue(despesasExtras)) : ''}
-              onChange={(e) => setDespesasExtras(e.target.value.replace(/[^\d]/g, ''))}
+              onChange={(e) => {
+                const numericValue = e.target.value.replace(/[^\d]/g, '');
+                setDespesasExtras(numericValue);
+              }}
             />
           </div>
         </CardContent>
