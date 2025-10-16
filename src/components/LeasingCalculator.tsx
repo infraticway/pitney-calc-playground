@@ -51,14 +51,12 @@ export const LeasingCalculator = () => {
     // Créditos PIS e COFINS (9.25% sobre o valor do aluguel)
     const creditosPisCofins = valorReciboAluguel * 0.0925;
 
-    // Valor líquido do aluguel após PIS/COFINS
+    // Redução do IR (34% sobre o valor bruto do aluguel)
+    const reducaoIR = valorReciboAluguel * 0.34;
+
+    // Valor líquido do aluguel após PIS/COFINS e IR
     const valorLiquidoAluguelPisCofins = valorReciboAluguel - creditosPisCofins;
-
-    // Redução do IR (34% sobre o valor líquido)
-    const reducaoIR = valorLiquidoAluguelPisCofins * 0.34;
-
-    // Valor líquido do aluguel após IR
-    const valorLiquidoAluguel = valorLiquidoAluguelPisCofins - reducaoIR;
+    const valorLiquidoAluguel = valorReciboAluguel - creditosPisCofins - reducaoIR;
 
     // Investimento líquido total
     const investimentoLiquidoTotal = valorLiquidoAluguel * prazo;
@@ -95,6 +93,7 @@ export const LeasingCalculator = () => {
                 const numericValue = e.target.value.replace(/[^\d]/g, '');
                 setValorBem(numericValue);
               }}
+              onFocus={(e) => e.target.select()}
               className="font-semibold"
             />
           </div>
@@ -144,6 +143,7 @@ export const LeasingCalculator = () => {
                 const numericValue = e.target.value.replace(/[^\d]/g, '');
                 setDespesasExtras(numericValue);
               }}
+              onFocus={(e) => e.target.select()}
             />
           </div>
         </CardContent>
