@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { LeasingCalculator } from "@/components/LeasingCalculator";
 import { Mail, ExternalLink } from "lucide-react";
-import logoSerlogistico from "@/assets/logo_serlogistico.png";
+import logoSerlogistico from "@/assets/logo_serlogistico.svg";
 import logoPitney from "@/assets/logo_pitney.png";
 
 const Index = () => {
