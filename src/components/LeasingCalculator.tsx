@@ -38,12 +38,14 @@ export const LeasingCalculator = () => {
     const iofPercent = parseValue(iof) / 100;
     const despesas = parseValue(despesasExtras);
 
-    // Valor da operação
-    const valorOperacao = vb + despesas;
+    // Valor da operação com IOF
+    const valorComIOF = vb * (1 + iofPercent);
+    const valorOperacao = valorComIOF + despesas;
 
     // Cálculo do valor do recibo de aluguel (PMT)
+    // Fórmula: -PMT(taxa, prazo, valor_operacao)
     const valorReciboAluguel = prazo > 0 && taxa > 0
-      ? (valorOperacao * taxa * Math.pow(1 + taxa, prazo)) / (Math.pow(1 + taxa, prazo) - 1)
+      ? -(valorOperacao * taxa) / (1 - Math.pow(1 + taxa, -prazo))
       : 0;
 
     // Créditos PIS e COFINS (9.25% sobre o valor do aluguel)
